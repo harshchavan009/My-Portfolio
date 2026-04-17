@@ -3,395 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsh Chavan - B.Tech CSE AI/ML Student</title>
+    <title>Harsh Chavan | 3D Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.168.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.168.0/examples/jsm/"
+            }
+        }
+    </script>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">HC</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="nav-controls">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="spinner"></div>
+            <p>Loading 3D Experience...</p>
         </div>
-    </nav>
+    </div>
+    <div class="bg-grid"></div>
+    <div class="hud-layer">
+        <div class="hud-item tl">SEC_AUTH: 0x77-F</div>
+        <div class="hud-item tr">LOC: VU_IND</div>
+        <div class="hud-item bl">SYS_ON: 2026.4.18</div>
+        <div class="hud-item br">USER: HARSH_C</div>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">Harsh Chavan</h1>
-                <p class="hero-subtitle">B.Tech CSE (AI/ML) Student | Python & DSA Learner</p>
-                <p class="hero-description">
-                    Passionate about Artificial Intelligence, Machine Learning, and building innovative solutions through code.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-laptop-code"></i> View Projects
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-download"></i> Download Resume
-                    </a>
-                    <a href="#contact" class="btn btn-outline">
-                        <i class="fas fa-envelope"></i> Contact Me
-                    </a>
+
+    <canvas id="canvas3d"></canvas>
+
+    <main id="main-content">
+        <!-- Landing Section -->
+        <section id="home" class="panel">
+            <div class="glass-card landing-card" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.5">
+                <p class="intro-text">Hello! I'm</p>
+
+                <h1 class="glitch-name" data-text="HARSH CHAVAN">HARSH CHAVAN</h1>
+                <p class="role-text">B.Tech Student & AI/ML Enthusiast</p>
+                <div class="social-links">
+                    <a href="https://github.com/harshchavan009" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/harsh-chavan-5804a5344/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:harshchavan1030@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div class="scroll-down-indicator">
+                    <p>INITIATE SCROLL</p>
+                    <div class="mouse-icon"></div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="avatar-placeholder">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a B.Tech Computer Science Engineering student at Parul University, specializing in Artificial Intelligence and Machine Learning. Currently, I'm focused on mastering Python programming and strengthening my Data Structures and Algorithms fundamentals to build a solid foundation for advanced AI/ML projects.
-                    </p>
-                    <p>
-                        My passion lies in exploring cutting-edge technologies and applying them to solve real-world problems. I'm particularly interested in machine learning applications, software development, and continuous learning. Outside of coding, I'm an avid boxer, a discipline that has taught me the importance of consistency, focus, and pushing beyond my limits—qualities that directly translate to my approach to problem-solving and coding.
-                    </p>
-                    <p>
-                        I believe in writing clean, efficient code and continuously improving my skills. I'm always eager to collaborate on interesting projects and contribute to the tech community.
-                    </p>
+            </div>
+        </section>
+
+        <!-- What I Do Section -->
+        <section id="what-i-do" class="panel">
+            <div class="what-i-do-container">
+                <div class="side-text">
+                    <h1 class="bg-text">WHAT<br>I DO</h1>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <h3>Education</h3>
-                        <p>B.Tech CSE</p>
-                        <p class="stat-subtext">Parul University</p>
+                <div class="cards-side">
+                    <div class="glass-card detail-card" data-tilt data-tilt-max="5">
+                        <span class="corner-bracket tr"></span>
+                        <span class="corner-bracket bl"></span>
+                        <h3>DEVELOP</h3>
+                        <p class="card-desc">As an AI/ML enthusiast, I build intelligent systems and robust applications using Python, C++, and modern frontend frameworks.</p>
                     </div>
-                    <div class="stat-card">
-                        <h3>Focus</h3>
-                        <p>AI & ML</p>
-                        <p class="stat-subtext">Specialization</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Passion</h3>
-                        <p>Coding</p>
-                        <p class="stat-subtext">& Problem Solving</p>
+                    <div class="glass-card detail-card" data-tilt data-tilt-max="5">
+                        <span class="corner-bracket tr"></span>
+                        <span class="corner-bracket bl"></span>
+                        <h3>DESIGN</h3>
+                        <p class="card-desc">I focus on creating intuitive, aesthetic user interfaces and scalable architectures that bridges the gap between AI and human interaction.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <!-- Programming Languages -->
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-code"></i> Programming Languages
-                    </h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Python</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%;"></div>
-                            </div>
+
+        <!-- Tech Stack Section -->
+        <section id="skills" class="panel">
+            <div class="glass-card skills-card" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.3" data-tilt-full-page-listening>
+                <h2>Technical Skills</h2>
+
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <div class="skill-tags">
+                            <span class="badge">Python</span>
+                            <span class="badge">C++</span>
+                            <span class="badge">JavaScript</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">C</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%;"></div>
-                            </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Frontend</h3>
+                        <div class="skill-tags">
+                            <span class="badge">HTML</span>
+                            <span class="badge">CSS</span>
+                            <span class="badge">React</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Java</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%;"></div>
-                            </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>AI / ML</h3>
+                        <div class="skill-tags">
+                            <span class="badge">NumPy</span>
+                            <span class="badge">Pandas</span>
+                            <span class="badge">Fundamental ML</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Platforms</h3>
+                        <div class="skill-tags">
+                            <span class="badge">Git</span>
+                            <span class="badge">GitHub</span>
+                            <span class="badge">VS Code</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Core Competencies</h3>
+                        <div class="skill-tags">
+                            <span class="badge">DSA</span>
+                            <span class="badge">OOP</span>
+                            <span class="badge">Problem Solving</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Core Computer Science -->
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-database"></i> Core Computer Science
-                    </h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Data Structures</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Algorithms</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 78%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">OOP</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 82%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Computer Networks</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Operating Systems</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 72%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tools & Technologies -->
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-tools"></i> Tools & Technologies
-                    </h3>
-                    <div class="skill-badges">
-                        <span class="badge">Git</span>
-                        <span class="badge">GitHub</span>
-                        <span class="badge">VS Code</span>
-                        <span class="badge">Jupyter Notebook</span>
-                        <span class="badge">Linux</span>
-                        <span class="badge">MySQL</span>
-                        <span class="badge">NumPy</span>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <p class="section-subtitle">Here are some of my recent projects and work</p>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="projects/cricket-scorecard.png" alt="Cricket Scorecard" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Cricket Scorecard (IPL Analytics)</h3>
-                        <p class="project-description">
-                            A comprehensive data-driven exploration of Indian Premier League stats and trends. Features player performance analytics, team insights, and match trends with a premium dashboard UI.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">Data Analysis</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/harshchavan009/Cricket-Scorecard.git" class="project-link" title="View Repository" target="_blank">
-                                <i class="fab fa-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <!-- Journey Section -->
+        <section id="journey" class="panel">
+            <div class="glass-card journey-card" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.3">
+                <h2>Education & Journey</h2>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="projects/student-prediction.png" alt="Student App Prediction System" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Student App Prediction System</h3>
-                        <p class="project-description">
-                            An AI-powered predictive system designed to analyze student engagement and performance metrics. It provides data-driven visualizations and risk assessments to help improve educational outcomes.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">Data Visualization</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/harshchavan009/Student-App-Prediction-System.git" class="project-link" title="View Repository" target="_blank">
-                                <i class="fab fa-github"></i> View Repository
-                            </a>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>B.Tech - CSE (AI & ML)</h3>
+                            <p class="institution">Parul University</p>
+                            <p class="description">Focused on building a strong foundation in Data Structures, Algorithms, and Core CS concepts. Specialized in Artificial Intelligence and Machine Learning.</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-project-diagram"></i>
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Hackathons & Tech Events</h3>
+                            <p class="institution">Active Participant</p>
+                            <p class="description">Regularly participate in technical events and hackathons, applying problem-solving skills to real-world challenges.</p>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Project Title Here</h3>
-                        <p class="project-description">
-                            Add your project description here. Explain what the project does, the problem it solves, and what you learned from building it.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">Data Structures</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link" title="View Repository">
-                                <i class="fab fa-github"></i> View Repository
-                            </a>
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Software Engineer (AI Focus)</h3>
+                            <p class="institution">Career Objective</p>
+                            <p class="description">Aiming to build a strong career in software engineering, contributing to innovative and impactful technology solutions.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="projects-cta">
-                <p>Want to see more projects?</p>
-                <a href="https://github.com/harshchavan009" target="_blank" class="btn btn-primary">
-                    View My GitHub Profile
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- GitHub Section -->
-    <section id="github" class="github-section">
-        <div class="container">
-            <h2 class="section-title">GitHub</h2>
-            <div class="github-content">
-                <div class="github-info">
-                    <h3>GitHub Profile</h3>
-                    <p>
-                        I actively contribute to open-source projects and maintain several repositories. Check out my GitHub profile to see my latest work and contributions.
-                    </p>
-                    <div class="github-stats-placeholder">
-                        <div class="stat">
-                            <p class="stat-label">GitHub</p>
-                            <p class="stat-value">@harshchavan009</p>
-                        </div>
+        <!-- Projects Section -->
+
+        <section id="projects" class="panel">
+            <div class="glass-card projects-card" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.3">
+                <h2>Featured Projects</h2>
+
+                <div class="project-list">
+                    <div class="project-item">
+                        <h3>Student Prediction System</h3>
+                        <p>AI-powered system designed to analyze student engagement and performance metrics.</p>
+                        <a href="https://github.com/harshchavan009/Student-App-Prediction-System" target="_blank" class="project-link">View Repository <i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <a href="https://github.com/harshchavan009" target="_blank" class="btn btn-primary">
-                        <i class="fab fa-github"></i> Visit GitHub Profile
-                    </a>
+                    <div class="project-divider"></div>
+                    <div class="project-item">
+                        <h3>Cricket Scorecard</h3>
+                        <p>Data-driven exploration of IPL stats and trends with a premium dashboard.</p>
+                        <a href="https://github.com/harshchavan009/Cricket-Scorecard" target="_blank" class="project-link">View Repository <i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- LinkedIn Section -->
-    <section id="linkedin" class="linkedin-section">
-        <div class="container">
-            <h2 class="section-title">Connect on LinkedIn</h2>
-            <div class="linkedin-content">
-                <div class="linkedin-message">
-                    <i class="fab fa-linkedin"></i>
-                    <h3>Let's Connect!</h3>
-                    <p>
-                        I'm always interested in connecting with fellow developers, tech enthusiasts, and recruiters. Feel free to reach out on LinkedIn to discuss projects, opportunities, or just to connect.
-                    </p>
-                    <a href="https://www.linkedin.com/in/harsh-chavan-5804a5344/" target="_blank" class="btn btn-primary">
-                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
-                    </a>
+        <!-- Contact Section -->
+        <section id="contact" class="panel">
+            <div class="glass-card contact-card" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.5">
+                <h2>Let's Connect</h2>
+
+                <p>I'm always interested in connecting with fellow developers and tech enthusiasts.</p>
+                <div class="contact-buttons">
+                    <a href="mailto:harshchavan1030@gmail.com" class="btn-primary">Send Email</a>
+                    <a href="https://www.linkedin.com/in/harsh-chavan-5804a5344/" target="_blank" class="btn-secondary">LinkedIn</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Have a project in mind or just want to chat? Feel free to reach out!</p>
-            
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:harshchavan1030@gmail.com">harshchavan1030@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <div>
-                            <h4>GitHub</h4>
-                            <a href="https://github.com/harshchavan009" target="_blank">github.com/harshchavan009</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <div>
-                            <h4>LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/harsh-chavan-5804a5344/" target="_blank">Harsh Chavan</a>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Harsh Chavan. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="https://github.com/harshchavan009" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/harsh-chavan-5804a5344/" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:harshchavan1030@gmail.com" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
+
